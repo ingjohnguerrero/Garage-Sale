@@ -1,0 +1,344 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* App container */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+/* Main content */
+.app-main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Footer */
+.app-footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Inactive Notice */
+.inactive-notice {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.inactive-notice h1 {
+  color: #667eea;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.inactive-notice .sale-dates {
+  background-color: #f8f9fa;
+  border-left: 4px solid #667eea;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.inactive-notice .sale-dates p {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+}
+
+/* Filter and Sort Controls */
+.filter-sort-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.filter-group select {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-group select:hover {
+  border-color: #667eea;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Item Grid */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* No Items Message */
+.no-items {
+  text-align: center;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 8px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Item Card */
+.item-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.item-card.sold {
+  opacity: 0.85;
+}
+
+/* Item Image Container */
+.item-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 66.67%; /* 3:2 aspect ratio */
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.item-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sold Overlay */
+.sold-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  background-color: rgba(220, 38, 38, 0.9);
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 1rem 2rem;
+  border: 4px solid rgba(220, 38, 38, 1);
+  border-radius: 8px;
+  pointer-events: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  letter-spacing: 0.2em;
+}
+
+/* Item Details */
+.item-details {
+  padding: 1.5rem;
+}
+
+.item-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.item-price {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.item-card.sold .item-price {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.item-info {
+  margin-bottom: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+.item-info p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.item-status {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+}
+
+.status-available {
+  color: #10b981;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.status-sold {
+  color: #dc2626;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.item-description {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 2rem;
+  }
+
+  .app-main {
+    padding: 1rem;
+  }
+
+  .filter-sort-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filter-group {
+    min-width: auto;
+  }
+
+  .sold-overlay {
+    font-size: 2rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .item-name {
+    font-size: 1.25rem;
+  }
+
+  .item-price {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 1.5rem;
+  }
+
+  .app-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .app-header p {
+    font-size: 1rem;
+  }
+
+  .inactive-notice {
+    margin: 2rem 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .sold-overlay {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Accessibility improvements */
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
