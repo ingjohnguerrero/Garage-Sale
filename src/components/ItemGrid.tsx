@@ -6,7 +6,9 @@ interface ItemGridProps {
 }
 
 export function ItemGrid({ items }: ItemGridProps) {
-  if (items.length === 0) {
+  const visibleItems = items.filter((i) => !i.hidden);
+
+  if (visibleItems.length === 0) {
     return (
       <div className="no-items">
         <p>No items match your current filters.</p>
@@ -16,7 +18,7 @@ export function ItemGrid({ items }: ItemGridProps) {
 
   return (
     <div className="item-grid">
-      {items.map((item) => (
+      {visibleItems.map((item) => (
         <ItemCard key={item.id} item={item} />
       ))}
     </div>

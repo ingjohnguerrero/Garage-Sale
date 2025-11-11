@@ -44,11 +44,8 @@ export const ITEMS: Item[] = [
   {
     "id": "4",
     "name": "Math Textbooks",
-    "imageUrl": "/images/items/books01/images.jpeg",
-    "images": [
-      "/images/items/books01/images.jpeg",
-      "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1.jpg"
-    ],
+    "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
+    "images": [],
     "price": 10,
     "condition": "Fair",
     "hidden": false,
