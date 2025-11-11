@@ -1,0 +1,70 @@
+// AUTO-GENERATED from src/data/items.csv — run scripts/seed-from-csv.mjs to regenerate
+import type { Item } from '../types';
+
+export const ITEMS: Item[] = [
+  {
+    "id": "1",
+    "name": "Vintage Table",
+    "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
+    "images": [],
+    "price": 75,
+    "condition": "Good",
+    "hidden": false,
+    "timeOfUse": "3 years",
+    "deliveryTime": "Pickup only",
+    "status": "Available",
+    "description": "Small mid-century side table with minor surface wear"
+  },
+  {
+    "id": "2",
+    "name": "Classic Floor Lamp",
+    "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
+    "images": [],
+    "price": 45,
+    "condition": "Good",
+    "hidden": false,
+    "timeOfUse": "5 years",
+    "deliveryTime": "Pickup or local delivery",
+    "status": "Available",
+    "description": "Brass floor lamp with fabric shade"
+  },
+  {
+    "id": "3",
+    "name": "Kids Toy Set",
+    "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
+    "images": [],
+    "price": 25,
+    "condition": "Like New",
+    "hidden": false,
+    "timeOfUse": "6 months",
+    "deliveryTime": "Pickup only",
+    "status": "Available",
+    "description": "Boxed toy set with original packaging"
+  },
+  {
+    "id": "4",
+    "name": "Math Textbooks",
+    "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
+    "images": [],
+    "price": 10,
+    "condition": "Fair",
+    "hidden": false,
+    "timeOfUse": "8 years",
+    "deliveryTime": "Pickup only",
+    "status": "Sold",
+    "description": "Lot of used math textbooks (some markings)"
+  },
+  {
+    "id": "5",
+    "name": "Leather Couch",
+    "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
+    "images": [],
+    "price": 250,
+    "condition": "Good",
+    "hidden": false,
+    "timeOfUse": "4 years",
+    "deliveryTime": "Delivery available",
+    "status": "Available",
+    "description": "Three-seat leather couch in good condition"
+  }
+] as unknown as Item[];

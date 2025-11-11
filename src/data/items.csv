@@ -1,0 +1,14 @@
+id,name,folder,price,condition,timeOfUse,deliveryTime,status,hidden,description
+1,Vintage Table,table01,75.00,Good,3 years,Pickup only,Available,false,Small mid-century side table with minor surface wear
+2,Classic Floor Lamp,lamp01,45.00,Good,5 years,Pickup or local delivery,Available,false,Brass floor lamp with fabric shade
+3,Kids Toy Set,toys01,25.00,Like New,6 months,Pickup only,Available,false,Boxed toy set with original packaging
+4,Math Textbooks,books01,10.00,Fair,8 years,Pickup only,Sold,false,Lot of used math textbooks (some markings)
+5,Leather Couch,couch01,250.00,Good,4 years,Delivery available,Available,false,Three-seat leather couch in good condition
+
+# Notes:
+# - `folder` should match a folder path under `public/images/items/` that contains
+#   the photos for that item (e.g. `public/images/items/table01/` with multiple
+#   image files). The seed script will collect images from that folder and
+#   set the first image as `imageUrl` and include all images in `images`.
+# - Fill this file (add/remove rows) and run `node scripts/seed-from-csv.mjs` to
+#   regenerate `src/data/items.ts` used by the site.
