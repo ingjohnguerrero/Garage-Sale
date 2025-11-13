@@ -31,6 +31,15 @@ When the current date is outside this window, visitors will see an inactive noti
 - **Accessibility:** Semantic HTML, ARIA attributes, and keyboard navigation support
 - **Localized formatting:** Prices and dates formatted according to user's locale
 
+### Item Details View
+
+The project includes a modal-first Item Details View that opens when a listing item is tapped/clicked. The details view includes:
+
+- An image carousel (swipe/tap/keyboard support) with thumbnails.
+- Modal-first navigation using pushState/popstate so the browser Back button closes the modal.
+- Progressive image loading with placeholder -> image transition and optional build-time image variants produced by `sharp` (developer opt-in).
+
+
 ## Tech Stack
 
 - **Vite** - Build tool and dev server
@@ -172,6 +181,40 @@ export const ITEMS: Item[] = [
 ];
 ```
 
+### CSV / Seeder: dimensions column
+
+The seeder reads `src/data/items.csv` when generating `src/data/items.ts`. A new optional `dimensions` column is supported. Put a human-friendly size string in this column, for example:
+
+- "12 x 8 x 2 in"
+- "30×20×5 cm"
+- "100 x 50 cm" (width x height, depth optional)
+
+The seeder will try to parse numeric width/height/depth and unit into structured fields (`dimensionsRaw` and `dimensions` parsed object) so the UI can display and the data can be used for filtering/sorting in future.
+
+If you edit `src/data/items.csv`, run:
+
+```bash
+node scripts/seed-from-csv.mjs
+```
+
+to regenerate `src/data/items.ts`.
+
+### CSV: category column
+
+You can provide an optional `category` column in `src/data/items.csv` to classify items (examples: `furniture`, `lighting`, `kitchen`, `tools`, `office`, `books`, `toys`). When present the seeder will include this as `category` on each generated item so the UI can display it and it can be used for filtering later.
+
+Example CSV header including category:
+
+```
+id,name,folder,category,dimensions,price,condition,timeOfUse,deliveryTime,status,hidden,description
+```
+
+After editing the CSV, run the seeder to regenerate `src/data/items.ts`:
+
+```bash
+node scripts/seed-from-csv.mjs
+```
+
 ### Changing Styles
 
 Edit `src/styles.css` to customize colors, fonts, layout, and more.
@@ -221,3 +264,21 @@ This project is provided as-is for personal or educational use.
 ## Contributing
 
 This is a personal garage sale project. If you'd like to suggest improvements, please open an issue.
+
+## Developer: Image seeding (sharp opt-in)
+
+The project provides a small seeder script (`scripts/seed-from-csv.mjs`) that copies images from `src/data/images/<folder>/` into `public/images/items/<folder>/` and generates `src/data/items.ts` from `src/data/items.csv`.
+
+- By default the seeder copies files only. To generate optimized thumbnail and medium webp variants opt in with `--with-sharp`:
+
+```bash
+node scripts/seed-from-csv.mjs --with-sharp
+```
+
+Or set `SEED_WITH_SHARP=1` in the environment. If `--with-sharp` is passed but the `sharp` package is not installed the seeder will warn and continue without producing variants. To produce variants locally install `sharp` as a dev dependency:
+
+```bash
+npm install -D sharp
+```
+
+When `-med.webp` variants are produced the seeder removes the copied original image for that file to save hosting space; the `-med.webp` variant is preferred for the detail view.

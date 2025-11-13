@@ -3,3 +3,17 @@ dist
 dist-ssr
 *.local
 .DS_Store
+
+# Additional common patterns
+build/
+.env
+.env.local
+.env.*
+.vscode/
+.idea/
+coverage/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

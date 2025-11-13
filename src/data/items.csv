@@ -1,9 +1,9 @@
-id,name,folder,price,condition,timeOfUse,deliveryTime,status,hidden,description
-1,Vintage Table,table01,75.00,Good,3 years,Pickup only,Available,false,Small mid-century side table with minor surface wear
-2,Classic Floor Lamp,lamp01,45.00,Good,5 years,Pickup or local delivery,Available,false,Brass floor lamp with fabric shade
-3,Kids Toy Set,toys01,25.00,Like New,6 months,Pickup only,Available,false,Boxed toy set with original packaging
-4,Math Textbooks,books01,10.00,Fair,8 years,Pickup only,Sold,false,Lot of used math textbooks (some markings)
-5,Leather Couch,couch01,250.00,Good,4 years,Delivery available,Available,false,Three-seat leather couch in good condition
+id,name,folder,category,dimensions,price,condition,timeOfUse,deliveryTime,status,hidden,description
+1,Vintage Table,table01,furniture,30 x 20 x 30 in,75.00,Good,3 years,Pickup only,Available,false,Small mid-century side table with minor surface wear
+2,Classic Floor Lamp,lamp01,lighting,60 x 12 in,45.00,Good,5 years,Pickup or local delivery,Available,false,Brass floor lamp with fabric shade
+3,Kids Toy Set,toys01,toys,12 x 8 x 6 in,25.00,Like New,6 months,Pickup only,Available,false,Boxed toy set with original packaging
+4,Math Textbooks,books01,books,10 x 7 x 2 in,10.00,Fair,8 years,Pickup only,Sold,false,Lot of used math textbooks (some markings)
+5,Leather Couch,couch01,furniture,84 x 36 x 30 in,250.00,Good,4 years,Delivery available,Available,false,Three-seat leather couch in good condition
 
 # Notes:
 # - `folder` should match a folder path under `public/images/items/` that contains

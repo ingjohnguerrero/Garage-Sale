@@ -6,7 +6,15 @@ export const ITEMS: Item[] = [
     "id": "1",
     "name": "Vintage Table",
     "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
-    "images": [],
+    "imagesMeta": [],
+    "dimensionsRaw": "30 x 20 x 30 in",
+    "dimensions": {
+      "width": 30,
+      "height": 20,
+      "depth": 30,
+      "unit": "in"
+    },
+    "category": "furniture",
     "price": 75,
     "condition": "Good",
     "hidden": false,
@@ -19,7 +27,14 @@ export const ITEMS: Item[] = [
     "id": "2",
     "name": "Classic Floor Lamp",
     "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
-    "images": [],
+    "imagesMeta": [],
+    "dimensionsRaw": "60 x 12 in",
+    "dimensions": {
+      "width": 60,
+      "height": 12,
+      "unit": "in"
+    },
+    "category": "lighting",
     "price": 45,
     "condition": "Good",
     "hidden": false,
@@ -32,7 +47,15 @@ export const ITEMS: Item[] = [
     "id": "3",
     "name": "Kids Toy Set",
     "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
-    "images": [],
+    "imagesMeta": [],
+    "dimensionsRaw": "12 x 8 x 6 in",
+    "dimensions": {
+      "width": 12,
+      "height": 8,
+      "depth": 6,
+      "unit": "in"
+    },
+    "category": "toys",
     "price": 25,
     "condition": "Like New",
     "hidden": false,
@@ -44,11 +67,35 @@ export const ITEMS: Item[] = [
   {
     "id": "4",
     "name": "Math Textbooks",
-    "imageUrl": "/images/items/books01/images.jpeg",
-    "images": [
-      "/images/items/books01/images.jpeg",
-      "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1.jpg"
+    "imageUrl": "/images/items/books01/images-med.webp",
+    "imagesMeta": [
+      {
+        "src": "/images/items/books01/images-med.webp",
+        "thumb": "/images/items/books01/images-thumb.jpg",
+        "med": "/images/items/books01/images-med.webp",
+        "alt": "Math Textbooks — Lot of used math textbooks (some markings) — Image 1"
+      },
+      {
+        "src": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-med.webp",
+        "thumb": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-thumb.jpg",
+        "med": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-med.webp",
+        "alt": "Math Textbooks — Lot of used math textbooks (some markings) — Image 2"
+      }
     ],
+    "primarySizes": {
+      "src": "/images/items/books01/images-med.webp",
+      "thumb": "/images/items/books01/images-thumb.jpg",
+      "med": "/images/items/books01/images-med.webp",
+      "alt": "Math Textbooks — Lot of used math textbooks (some markings) — Image 1"
+    },
+    "dimensionsRaw": "10 x 7 x 2 in",
+    "dimensions": {
+      "width": 10,
+      "height": 7,
+      "depth": 2,
+      "unit": "in"
+    },
+    "category": "books",
     "price": 10,
     "condition": "Fair",
     "hidden": false,
@@ -61,7 +108,15 @@ export const ITEMS: Item[] = [
     "id": "5",
     "name": "Leather Couch",
     "imageUrl": "https://placehold.co/600x400?text=No+Image&bg=efefef&color=555",
-    "images": [],
+    "imagesMeta": [],
+    "dimensionsRaw": "84 x 36 x 30 in",
+    "dimensions": {
+      "width": 84,
+      "height": 36,
+      "depth": 30,
+      "unit": "in"
+    },
+    "category": "furniture",
     "price": 250,
     "condition": "Good",
     "hidden": false,

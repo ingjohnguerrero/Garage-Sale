@@ -33,3 +33,29 @@ npm run dev
 
 6. Open a listing item and verify the details view opens and the carousel
    navigates images. Use a mobile viewport to validate responsiveness.
+
+---
+
+Notes on thumbnails and optimized variants
+
+If you want the seeder to produce thumbnail and medium-sized variants, install `sharp` as a developer dependency first:
+
+```bash
+npm install --save-dev sharp
+```
+
+When `sharp` is present the seeder will create `<filename>-thumb.jpg` (300x200) and `<filename>-med.webp` (medium webp) in the same public image folder. The generated `src/data/items.ts` will still reference the main image; the variants are produced for runtime optimization use where appropriate.
+
+Optional: explicit opt-in for variant generation
+
+The seeder will not run `sharp` processing unless you opt in. Two ways to opt-in:
+
+- Pass the `--with-sharp` CLI flag when running the seeder:
+
+```bash
+node scripts/seed-from-csv.mjs --with-sharp
+```
+
+- Or set the environment variable for CI: `SEED_WITH_SHARP=1 node scripts/seed-from-csv.mjs`.
+
+If `--with-sharp` is provided but `sharp` is not installed the seeder will print a warning and continue without producing variants.
