@@ -30,8 +30,6 @@ export function ItemGrid({ items }: ItemGridProps) {
         <ItemDetail
           item={selected}
           onClose={() => {
-            // eslint-disable-next-line no-console
-            console.log('ItemDetail closed');
             setSelected(null);
           }}
         />
