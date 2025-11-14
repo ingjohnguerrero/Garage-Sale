@@ -5,12 +5,9 @@ export interface ImageDescriptor {
   alt?: string;     // accessible alt text produced by the seeder when available
 }
 
-export interface SizeVariants {
-  src: string;
-  thumb?: string;
-  med?: string;
-  alt?: string;
-}
+// SizeVariants was identical to ImageDescriptor. Keep a type alias to preserve backward compatibility
+// and use ImageDescriptor throughout the codebase.
+export type SizeVariants = ImageDescriptor;
 
 export interface Dimensions {
   width?: number;

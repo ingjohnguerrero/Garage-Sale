@@ -72,18 +72,21 @@ export const ITEMS: Item[] = [
       {
         "src": "/images/items/books01/images-med.webp",
         "thumb": "/images/items/books01/images-thumb.jpg",
-        "med": "/images/items/books01/images-med.webp"
+        "med": "/images/items/books01/images-med.webp",
+        "alt": "Math Textbooks — Lot of used math textbooks (some markings) — Image 1"
       },
       {
         "src": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-med.webp",
         "thumb": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-thumb.jpg",
-        "med": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-med.webp"
+        "med": "/images/items/books01/these-are-some-of-my-favorite-math-books-which-of-these-or-v0-vj88od2rvmhd1-med.webp",
+        "alt": "Math Textbooks — Lot of used math textbooks (some markings) — Image 2"
       }
     ],
     "primarySizes": {
       "src": "/images/items/books01/images-med.webp",
       "thumb": "/images/items/books01/images-thumb.jpg",
-      "med": "/images/items/books01/images-med.webp"
+      "med": "/images/items/books01/images-med.webp",
+      "alt": "Math Textbooks — Lot of used math textbooks (some markings) — Image 1"
     },
     "dimensionsRaw": "10 x 7 x 2 in",
     "dimensions": {

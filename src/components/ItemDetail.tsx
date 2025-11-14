@@ -20,10 +20,6 @@ export function ItemDetail({ item, onClose }: ItemDetailProps) {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // debug: log modal open
-    // eslint-disable-next-line no-console
-    console.log('ItemDetail opened:', item.id);
-
     // push history state for modal-first behavior, but avoid double-push if hash already set
     const desiredHash = `#item-${item.id}`;
     if (window.location.hash !== desiredHash) {
