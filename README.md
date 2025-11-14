@@ -149,6 +149,44 @@ This is a static website that can be deployed to any static hosting service:
 - [AWS S3 + CloudFront](https://aws.amazon.com/s3/)
 - [Firebase Hosting](https://firebase.google.com/docs/hosting)
 
+### Firebase Hosting (recommended for this project)
+
+This project is a static single-page app built with Vite. The production build output goes to the `dist/` directory which works well with Firebase Hosting.
+
+1. Install the Firebase CLI (globally) or use `npx` for one-off commands:
+
+```bash
+npm install -g firebase-tools
+# or use npx for one-off usage
+```
+
+2. Login and initialize hosting (one-time):
+
+```bash
+npx firebase login
+npx firebase init hosting
+# When prompted, select or create a project and set the public directory to `dist`.
+# Answer "Yes" when asked to configure as a single-page app so that all routes
+# are rewritten to `index.html`.
+```
+
+3. Build and deploy:
+
+```bash
+npm run build
+npx firebase deploy --only hosting
+```
+
+You can also use the convenience npm script added to `package.json`:
+
+```bash
+npm run deploy
+```
+
+Notes:
+- The repository includes `firebase.json` (hosting config) and a `.firebaserc` file with a placeholder project id. Replace the placeholder in `.firebaserc` or run `npx firebase init` to select a project.
+- If you prefer not to install the CLI globally, `npx firebase` works without a global install.
+
 ## Customization
 
 ### Updating Sale Dates
