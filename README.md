@@ -2,6 +2,19 @@
 
 A static Vite + React + TypeScript website for displaying garage sale items. The site operates within a configured date window and displays items with client-side filtering and sorting capabilities.
 
+## 📚 Documentation
+
+For comprehensive documentation including architecture diagrams, setup guides, and development workflows, see the **[Project Wiki](./wiki/Home.md)**.
+
+**Quick Links:**
+- 🚀 [Setup Guide](./wiki/Setup.md) - Installation and configuration
+- 🏗️ [Architecture](./wiki/Architecture.md) - System design and technology stack
+- 📊 [Database Schema](./wiki/Database-Schema.md) - Data model with ERM diagram
+- 🧩 [Component Diagram](./wiki/Component-Diagram.md) - React component hierarchy
+- 🔄 [Sequence Diagrams](./wiki/Sequence-Diagrams.md) - User interaction flows
+- 🚢 [Deployment Guide](./wiki/Deployment.md) - Deploy to production
+- 💻 [Development Guide](./wiki/Development-Guide.md) - Development workflows
+
 ## Overview
 
 This is a temporal garage sale website where:
@@ -302,6 +315,19 @@ This project is provided as-is for personal or educational use.
 ## Contributing
 
 This is a personal garage sale project. If you'd like to suggest improvements, please open an issue.
+
+## Documentation
+
+For detailed documentation including architecture diagrams, component relationships, sequence diagrams, and deployment guides, visit the **[Project Wiki](./wiki/Home.md)**.
+
+The wiki includes:
+- Complete setup and installation guides
+- System architecture with Mermaid diagrams
+- Entity Relationship Diagrams (ERM) for data model
+- React component hierarchy and relationships
+- User interaction sequence diagrams
+- Deployment guides for multiple platforms
+- Development workflows and best practices
 
 ## Developer: Image seeding (sharp opt-in)
 
