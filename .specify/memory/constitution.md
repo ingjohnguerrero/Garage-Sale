@@ -1,16 +1,17 @@
 <!--
 Sync Impact Report
 
-Version change: none → 1.0.0
-Modified principles: (added) I. Static & Code-first; II. Component-driven UI; III. Type safety & Test-first; IV. Accessibility & Localization; V. Simplicity, Observability & Versioning
-Added sections: Additional Constraints, Development Workflow
+Version change: 1.0.0 → 1.0.1
+Modified principles: none
+Added sections: none
 Removed sections: none
+Clarifications: Added Firebase Hosting deployment details to Additional Constraints (deployment method clarification aligns with static-first principle I)
 Templates requiring updates:
-  - .specify/templates/plan-template.md ✅ updated
-  - .specify/templates/spec-template.md ✅ checked
-  - .specify/templates/tasks-template.md ✅ checked
-  - .specify/templates/checklist-template.md ✅ checked
-  - .specify/templates/agent-file-template.md ✅ checked
+  - .specify/templates/plan-template.md ✅ no changes needed
+  - .specify/templates/spec-template.md ✅ no changes needed
+  - .specify/templates/tasks-template.md ✅ no changes needed
+  - .specify/templates/checklist-template.md ✅ no changes needed
+  - .specify/templates/agent-file-template.md ✅ no changes needed
 Follow-up TODOs: none
 -->
 
@@ -81,6 +82,11 @@ issues in production builds and clear rules for breaking changes.
   listing content is a code change and follows normal PR and release flows.
 - No runtime authentication or persistent backend is permitted without
   explicit governance approval.
+- Deployment: The project uses Firebase Hosting (static hosting) as documented
+  in `firebase.json` and `README.md`. The deployment target MUST remain a
+  static hosting service (no server-side rendering, no serverless functions,
+  no runtime backends) per Principle I. The `npm run deploy` script builds
+  and deploys via the Firebase CLI.
 
 ## Development Workflow
 
@@ -115,5 +121,5 @@ Versioning rules for the constitution file:
 - MINOR: New principles or material expansions of guidance.
 - PATCH: Wording clarifications, typos, or non-semantic refinements.
 
-**Version**: 1.0.0 | **Ratified**: 2025-11-11 | **Last Amended**: 2025-11-11
+**Version**: 1.0.1 | **Ratified**: 2025-11-11 | **Last Amended**: 2025-11-16
 
