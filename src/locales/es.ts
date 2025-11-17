@@ -50,8 +50,7 @@ export const es = {
     saleStarts: 'Inicio de la Venta',
     saleEnds: 'Fin de la Venta',
     checkBack: '¡Por favor, vuelva durante el período de venta para ver los artículos disponibles!'
-  }
-  ,
+  },
   site: {
     title: 'Venta de Garaje',
     subtitle: 'Explore nuestra colección de artículos usados de calidad'

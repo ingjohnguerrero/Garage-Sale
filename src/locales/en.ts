@@ -50,8 +50,7 @@ export const en = {
     saleStarts: 'Sale Start',
     saleEnds: 'Sale End',
     checkBack: 'Please check back during the sale window to view available items!'
-  }
-  ,
+  },
   site: {
     title: 'Garage Sale',
     subtitle: 'Browse our collection of quality pre-owned items'
