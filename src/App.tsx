@@ -4,6 +4,7 @@ import { ITEMS } from "./data/items";
 import { FilterSort } from "./components/FilterSort";
 import { ItemGrid } from "./components/ItemGrid";
 import { InactiveNotice } from "./components/InactiveNotice";
+import { useTranslation } from './i18n';
 import "./styles.css";
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
   const [conditionFilter, setConditionFilter] = useState(initial.condition);
   const [sortOption, setSortOption] = useState(initial.sort);
   const [categoryFilter, setCategoryFilter] = useState(initial.categories);
+
+  const { t } = useTranslation();
 
   // Check if sale is active
   const now = new Date();
@@ -109,8 +112,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Garage Sale</h1>
-        <p>Browse our collection of quality pre-owned items</p>
+        <h1>{t('site.title')}</h1>
+        <p>{t('site.subtitle')}</p>
       </header>
 
       <main className="app-main">
@@ -131,7 +134,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>&copy; {new Date().getFullYear()} Garage Sale. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} {t('site.title')}. All rights reserved.</p>
       </footer>
     </div>
   );

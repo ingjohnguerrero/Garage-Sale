@@ -1,3 +1,5 @@
+import { useTranslation } from "../i18n";
+
 interface FilterSortProps {
   statusFilter: string;
   conditionFilter: string;
@@ -23,11 +25,13 @@ export function FilterSort({
   onSortChange,
   onCategoryChange,
 }: FilterSortProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="filter-sort-container">
       <div className="filter-group">
         <fieldset aria-labelledby="category-filter-legend">
-          <legend id="category-filter-legend">Category</legend>
+          <legend id="category-filter-legend">{t('filters.category.label')}</legend>
           <div className="category-checkboxes">
             {categories.map((c) => {
               const count = categoryCounts[c] ?? 0;
@@ -62,52 +66,52 @@ export function FilterSort({
       </div>
       <div className="filter-group">
         <label htmlFor="status-filter">
-          Status:
+          {t('filters.status.label')}:
           <select
             id="status-filter"
             value={statusFilter}
             onChange={(e) => onStatusChange(e.target.value)}
-            aria-label="Filter by status"
+            aria-label={t('filters.status.label')}
           >
-            <option value="All">All</option>
-            <option value="Available">Available</option>
-            <option value="Sold">Sold</option>
+            <option value="All">{t('filters.status.all')}</option>
+            <option value="Available">{t('filters.status.available')}</option>
+            <option value="Sold">{t('filters.status.sold')}</option>
           </select>
         </label>
       </div>
 
       <div className="filter-group">
         <label htmlFor="condition-filter">
-          Condition:
+          {t('filters.condition.label')}:
           <select
             id="condition-filter"
             value={conditionFilter}
             onChange={(e) => onConditionChange(e.target.value)}
-            aria-label="Filter by condition"
+            aria-label={t('filters.condition.label')}
           >
-            <option value="All">All</option>
-            <option value="New">New</option>
-            <option value="Like New">Like New</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-            <option value="Poor">Poor</option>
+            <option value="All">{t('filters.condition.all')}</option>
+            <option value="New">{t('filters.condition.new')}</option>
+            <option value="Like New">{t('filters.condition.likeNew')}</option>
+            <option value="Good">{t('filters.condition.good')}</option>
+            <option value="Fair">{t('filters.condition.fair')}</option>
+            <option value="Poor">{t('filters.condition.poor')}</option>
           </select>
         </label>
       </div>
 
       <div className="filter-group">
         <label htmlFor="sort-option">
-          Sort by:
+          {t('filters.sort.label')}:
           <select
             id="sort-option"
             value={sortOption}
             onChange={(e) => onSortChange(e.target.value)}
-            aria-label="Sort items"
+            aria-label={t('filters.sort.label')}
           >
-            <option value="price-low">Price: Low → High</option>
-            <option value="price-high">Price: High → Low</option>
-            <option value="name-asc">Name: A → Z</option>
-            <option value="name-desc">Name: Z → A</option>
+            <option value="price-low">{t('filters.sort.priceLowHigh')}</option>
+            <option value="price-high">{t('filters.sort.priceHighLow')}</option>
+            <option value="name-asc">{t('filters.sort.nameAZ')}</option>
+            <option value="name-desc">{t('filters.sort.nameZA')}</option>
           </select>
         </label>
       </div>

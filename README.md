@@ -29,7 +29,11 @@ When the current date is outside this window, visitors will see an inactive noti
 - **Responsive design:** Works on desktop, tablet, and mobile devices
 - **Sold overlay:** Visual "SOLD" stamp on sold items
 - **Accessibility:** Semantic HTML, ARIA attributes, and keyboard navigation support
-- **Localized formatting:** Prices and dates formatted according to user's locale
+- **Internationalization (i18n):** Multi-language support with locale-aware formatting
+  - **Supported languages:** English (en-US, en-GB), Spanish (es-ES), French (fr-FR), German (de-DE)
+  - **Currency formatting:** USD, EUR, GBP, JPY with proper symbols and decimal handling
+  - **Date/number formatting:** Locale-specific date order, separators, and formats
+  - **Fallback system:** Gracefully falls back to English for missing translations
 
 ### Item Details View
 
@@ -117,6 +121,55 @@ Preview the production build locally:
 ```bash
 npm run preview
 ```
+
+## Configuration
+
+### Internationalization (i18n)
+
+Configure the site's language and currency in `src/constants.ts`:
+
+```typescript
+import type { LocaleCode, CurrencyCode } from './types';
+
+// Sale window configuration
+export const SALE_START = new Date("2025-10-15T00:00:00Z");
+export const SALE_END   = new Date("2026-01-06T23:59:59Z");
+
+// i18n configuration
+export const LOCALE: LocaleCode = 'en-US';  // Language and region
+export const CURRENCY: CurrencyCode = 'USD'; // Currency for prices
+```
+
+**Supported Locales:**
+- `'en-US'` - English (United States)
+- `'en-GB'` - English (United Kingdom)
+- `'es-ES'` - Spanish (Spain)
+- `'fr-FR'` - French (France)
+- `'de-DE'` - German (Germany)
+
+**Supported Currencies:**
+- `'USD'` - US Dollar ($)
+- `'EUR'` - Euro (€)
+- `'GBP'` - British Pound (£)
+- `'JPY'` - Japanese Yen (¥)
+
+**Example Configurations:**
+
+```typescript
+// Spanish site with Euro pricing
+export const LOCALE: LocaleCode = 'es-ES';
+export const CURRENCY: CurrencyCode = 'EUR';
+
+// German site with Euro pricing
+export const LOCALE: LocaleCode = 'de-DE';
+export const CURRENCY: CurrencyCode = 'EUR';
+
+// French site with Euro pricing
+export const LOCALE: LocaleCode = 'fr-FR';
+export const CURRENCY: CurrencyCode = 'EUR';
+```
+
+**Note:** Changes to `LOCALE` or `CURRENCY` require rebuilding the application (`npm run build`).
 
 ## Deployment
 

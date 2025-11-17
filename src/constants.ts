@@ -1,2 +1,8 @@
+import type { LocaleCode, CurrencyCode } from './types';
+
 export const SALE_START = new Date("2025-10-15T00:00:00Z");
 export const SALE_END   = new Date("2026-01-06T23:59:59Z");
+
+// i18n configuration
+export const LOCALE: LocaleCode = 'es-ES';
+export const CURRENCY: CurrencyCode = 'COP';

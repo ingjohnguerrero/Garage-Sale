@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Item } from "../types";
 import { ImageCarousel } from "./ImageCarousel";
+import { useTranslation, useFormatters } from "../i18n";
 
 interface ItemDetailProps {
   item: Item;
@@ -8,6 +9,8 @@ interface ItemDetailProps {
 }
 
 export function ItemDetail({ item, onClose }: ItemDetailProps) {
+  const { t } = useTranslation();
+  const { formatPrice, formatDate } = useFormatters();
   const overlayRef = useRef<HTMLDivElement | null>(null);
 
   // Prefer explicit image metadata produced by the seeder (imagesMeta / primarySizes).
@@ -50,15 +53,10 @@ export function ItemDetail({ item, onClose }: ItemDetailProps) {
     };
   }, [item.id, onClose]);
 
-  // Use user's locale where possible and format currency; currency is USD by default
-  const locale = typeof navigator !== 'undefined' ? navigator.language : undefined;
-  const formatter = new Intl.NumberFormat(locale, { style: "currency", currency: "USD", maximumFractionDigits: 2 });
-  const dateFormatter = new Intl.DateTimeFormat(locale, { dateStyle: 'medium' });
-
   function fmtMaybeDate(value?: string) {
     if (!value) return '';
     const d = new Date(value);
-    if (!isNaN(d.getTime())) return dateFormatter.format(d);
+    if (!isNaN(d.getTime())) return formatDate(d, { dateStyle: 'medium' });
     // fallback: return the raw string (e.g., "2 years")
     return value;
   }
@@ -92,28 +90,28 @@ export function ItemDetail({ item, onClose }: ItemDetailProps) {
       }}
     >
       <div className="modal-card" onMouseDown={(e) => e.stopPropagation()}>
-        <button className="modal-close" onClick={() => window.history.back()} aria-label="Close details">×</button>
+        <button className="modal-close" onClick={() => window.history.back()} aria-label={t('item.close')}>×</button>
         <div className="modal-media">
           <ImageCarousel images={imagesForCarousel} altBase={item.name} />
         </div>
         <div className="modal-body">
           <h2 id={`item-title-${item.id}`} className="item-name">{item.name}</h2>
           {item.status !== "Sold" && (
-            <p className="item-price" aria-label={item.price != null ? `Price ${formatter.format(item.price)}` : 'Price not listed'}>
-              {item.price != null ? formatter.format(item.price) : "Price not listed"}
+            <p className="item-price" aria-label={item.price != null ? `${t('item.price')} ${formatPrice(item.price)}` : t('item.price') + ' not listed'}>
+              {item.price != null ? formatPrice(item.price) : `${t('item.price')} not listed`}
             </p>
           )}
           {item.category && (
-            <p className="item-category"><strong>Category:</strong> {item.category}</p>
+            <p className="item-category"><strong>{t('filters.category.label')}:</strong> {item.category}</p>
           )}
           {item.dimensions && (
-            <p className="item-dimensions"><span className="dim-icon" aria-hidden>📐</span> <strong>Dimensions:</strong> {formatDimensions(item.dimensions)}</p>
+            <p className="item-dimensions"><span className="dim-icon" aria-hidden>📐</span> <strong>{t('item.dimensions')}:</strong> {formatDimensions(item.dimensions)}</p>
           )}
           <div className="item-info">
-            <p><strong>Condition:</strong> {item.condition}</p>
-            <p><strong>Time of Use:</strong> {fmtMaybeDate(item.timeOfUse) || item.timeOfUse}</p>
-            <p><strong>Delivery:</strong> {fmtMaybeDate(item.deliveryTime) || item.deliveryTime}</p>
-            <p className="item-status"><strong>Status:</strong> <span className={item.status === "Sold" ? "status-sold" : "status-available"}>{item.status}</span></p>
+            <p><strong>{t('item.condition')}:</strong> {item.condition}</p>
+            <p><strong>{t('item.timeOfUse')}:</strong> {fmtMaybeDate(item.timeOfUse) || item.timeOfUse}</p>
+            <p><strong>{t('item.deliveryTime')}:</strong> {fmtMaybeDate(item.deliveryTime) || item.deliveryTime}</p>
+            <p className="item-status"><strong>{t('filters.status.label')}:</strong> <span className={item.status === "Sold" ? "status-sold" : "status-available"}>{item.status}</span></p>
           </div>
           {item.description && <p className="item-description">{item.description}</p>}
         </div>
