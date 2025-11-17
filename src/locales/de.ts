@@ -50,8 +50,7 @@ export const de = {
     saleStarts: 'Verkaufsbeginn',
     saleEnds: 'Verkaufsende',
     checkBack: 'Bitte schauen Sie während des Verkaufszeitraums vorbei, um verfügbare Artikel zu sehen!'
-  }
-  ,
+  },
   site: {
     title: 'Flohmarkt',
     subtitle: 'Durchsuchen Sie unsere Auswahl an hochwertigen gebrauchten Artikeln'

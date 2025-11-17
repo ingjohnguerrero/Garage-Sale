@@ -50,8 +50,7 @@ export const fr = {
     saleStarts: 'Début de la Vente',
     saleEnds: 'Fin de la Vente',
     checkBack: 'Veuillez revenir pendant la période de vente pour voir les articles disponibles !'
-  }
-  ,
+  },
   site: {
     title: 'Vente de Garage',
     subtitle: 'Parcourez notre collection d\'articles d\'occasion de qualité'
