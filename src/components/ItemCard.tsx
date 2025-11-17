@@ -1,4 +1,5 @@
 import { Item } from "../types";
+import { useTranslation, useFormatters } from "../i18n";
 
 interface ItemCardProps {
   item: Item;
@@ -6,10 +7,8 @@ interface ItemCardProps {
 }
 
 export function ItemCard({ item, onOpen }: ItemCardProps) {
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
+  const { t } = useTranslation();
+  const { formatPrice } = useFormatters();
 
   function formatDimensions(dim: string | { width?: number; height?: number; depth?: number; unit?: string } | undefined) {
     if (!dim) return null;
@@ -39,7 +38,7 @@ export function ItemCard({ item, onOpen }: ItemCardProps) {
           className="item-image"
         />
         {item.status === "Sold" && (
-          <div className="sold-overlay">SOLD</div>
+          <div className="sold-overlay">{t('item.sold')}</div>
         )}
       </div>
       <div className="item-details">
@@ -48,17 +47,17 @@ export function ItemCard({ item, onOpen }: ItemCardProps) {
           <p className="item-category" aria-hidden>{item.category}</p>
         )}
         {item.status !== "Sold" && (
-          <p className="item-price">{formatter.format(item.price)}</p>
+          <p className="item-price">{formatPrice(item.price)}</p>
         )}
         <div className="item-info">
-          <p><strong>Condition:</strong> {item.condition}</p>
+          <p><strong>{t('item.condition')}:</strong> {item.condition}</p>
           {item.dimensions && (
-            <p className="item-dimensions"><span className="dim-icon" aria-hidden>📐</span> <strong>Dimensions:</strong> {formatDimensions(item.dimensions)}</p>
+            <p className="item-dimensions"><span className="dim-icon" aria-hidden>📐</span> <strong>{t('item.dimensions')}:</strong> {formatDimensions(item.dimensions)}</p>
           )}
-          <p><strong>Time of Use:</strong> {item.timeOfUse}</p>
-          <p><strong>Delivery:</strong> {item.deliveryTime}</p>
+          <p><strong>{t('item.timeOfUse')}:</strong> {item.timeOfUse}</p>
+          <p><strong>{t('item.deliveryTime')}:</strong> {item.deliveryTime}</p>
           <p className="item-status">
-            <strong>Status:</strong> 
+            <strong>{t('filters.status.label')}:</strong> 
             <span className={item.status === "Sold" ? "status-sold" : "status-available"}>
               {item.status}
             </span>

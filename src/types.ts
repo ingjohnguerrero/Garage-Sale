@@ -16,6 +16,10 @@ export interface Dimensions {
   unit?: string;
 }
 
+// i18n types
+export type LocaleCode = 'en-US' | 'en-GB' | 'es-ES' | 'fr-FR' | 'de-DE';
+export type CurrencyCode = 'USD' | 'EUR' | 'GBP' | 'JPY' | 'COP';
+
 export interface Item {
   id: string;
   name: string;
